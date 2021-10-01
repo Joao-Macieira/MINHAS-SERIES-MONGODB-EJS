@@ -2,7 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 
-const pagesRouter = require('./routes/pages')
+const pagesRouter = require('./routes/pages');
+const seriesRouter = require('./routes/series');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -17,6 +18,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.use('/', pagesRouter);
+app.use('/series', seriesRouter);
 
 mongoose
   .connect(mongo, { useNewUrlParser: true, useUnifiedTopology: true })
