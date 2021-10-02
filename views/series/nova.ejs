@@ -1,0 +1,35 @@
+<%- include('../partials/header') %>
+
+<section id="about">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <form action="" method="post">
+          <h2>Series</h2>
+          <p class="lead">Cadastrar nova série <a href="/series" class="btn btn-info">Voltar</a></p>
+          <div class="form-group">
+            <label for="name">Nome</label>
+            <input type="text" class="form-control" aria-describedby="nameHelp" placeholder="Informe o nome" name="name" id="name">
+            <small id="nameHelp" class="form-text text-muted">Nome da séria a ser salva</small>
+            <% if (errors && errors.indexOf('name') >= 0) { %>
+              <small id="nameHelp" class="form-text text-muted">Por favor, informe o nome da série</small>
+            <% } %>
+          </div>
+
+          <div class="form-group">
+            <label for="status">Situação:</label>
+            <select name="status" id="status" class="form-control">
+              <option value="to-watch">Para assistir</option>
+              <option value="watching">Assistindo</option>
+              <option value="watched">Assistido</option>
+            </select>
+          </div>
+
+          <button class="btn btn-primary">Salvar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%- include('../partials/footer') %>
